@@ -31,17 +31,22 @@ public class ListApiDemo {
         new VoidVisitorAdapter<Object>() {
           public void visit(PackageDeclaration n, Object arg) {
             super.visit(n, arg);
+            //获得包声明   eg：package ****** ——> *******
             curPackage = n.getNameAsString();
           }
           @Override
           public void visit(ClassOrInterfaceDeclaration n, Object arg) {
             super.visit(n, arg);
+            //cName为类的全称，com.xx.类名
             String cName = curPackage + "." + n.getNameAsString();
             apis.add(cName);
+
             for (MethodDeclaration method: n.getMethods()) {
               if (method.isPrivate()) continue;
               String mName = method.getNameAsString();
               if (mName.equals("main")) continue;
+
+              //cName.mNmae是方法名的全称，com.company.NCE02.test2
               apis.add(cName + "." + mName);
             }
           }
@@ -61,10 +66,13 @@ public class ListApiDemo {
             "data/test"
 //            Config.getRepoCorpusPath()
     );
-    listAPIs(projectDir);
-    FileWriter fw = new FileWriter("test/ListApiDemo");
-    fw.write(String.join("\n", apis));
-    fw.close();
-    System.out.println("tot " + apis.size() + " apis");
+    Set<String>api =  listAPIs(new File(Config.getJavaCorpusPath()));
+    for (String ss:api){
+      System.out.println(ss);
+    }
+//    FileWriter fw = new FileWriter("test/ListApiDemo");
+//    fw.write(String.join("\n", apis));
+//    fw.close();
+//    System.out.println("tot " + apis.size() + " apis");
   }
 }

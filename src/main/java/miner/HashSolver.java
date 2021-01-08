@@ -6,7 +6,6 @@ import utils.Config;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -17,13 +16,13 @@ public class HashSolver {
 
   public HashSolver() {
     items = new ArrayList<>();
+
     ApiLoader.loadApis();
   }
 
   public List<List<String>> getItems() {
     return items;
   }
-
 
   public String locateApiFullName(List<String> libs, String shortName) {
     for (String lib: libs) {
@@ -36,7 +35,6 @@ public class HashSolver {
     return "";
   }
 
-  //
   public void solve(List<SCSFile> scsFiles) {
     // 获得所有scsFiles中的scsUnits记录的方法调用
     for (SCSFile scsfile: scsFiles) {
@@ -47,10 +45,7 @@ public class HashSolver {
         List<String> item = new ArrayList<>();
         for (String shortName: unit.getInvocationShortNames()) {
           // 根据词表获取方法全名
-          // TODO 没有考虑到 java.lang.StringBuilder.append(java.lang.Object) 这样的API，类似的API不会有对应的import语句，
-          //  导致locateApiFullName方法找不到对应结果会return ""，从而导致对应的API没有加入到序列中
           String fullName = locateApiFullName(importedLibraries, shortName);
-//          System.out.println("fullName" + ":" + fullName);
           if (fullName.length() == 0) continue;
           if (Config.useShortName()) {
             item.add(shortName);

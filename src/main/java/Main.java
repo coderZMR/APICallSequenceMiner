@@ -30,6 +30,8 @@ public class Main {
 
     //在数据集中挖掘
    // Set<String> apis = ListApiDemo.listAPIs(new File(Config.getRepoCorpusPath1()));  // apis里面是用户自定义的方法
+
+      //apis中存放的是自定义类的全称和方法的全称，eg：com.company.NCE02    com.company.NCE02.test2
       Set<String> apis = ListApiDemo.listAPIs(new File(Config.getJavaCorpusPath()));
       long listAPIsEndTime = System.currentTimeMillis();
     logger.info("获取用户自定义方法" + " " + "程序运行时间：" + " " + (listAPIsEndTime - listAPIsStartTime) + " " + "ms" +
@@ -40,6 +42,7 @@ public class Main {
       seqFile.delete();
     }
 
+
     logger.info("Step 1: Extract structured call sequence from corpus");
     long extractStartTime = System.currentTimeMillis();
     // Step 1: Extract structured call sequence from corpus
@@ -48,6 +51,9 @@ public class Main {
     long extractEndTime = System.currentTimeMillis();
     logger.info("Step 1: Extract structured call sequence from corpus" + " " + "程序运行时间：" + " " + (extractEndTime - extractStartTime) + " " + "ms" +
             " " + getGapTime(extractEndTime - extractStartTime));
+
+
+
 
     logger.info("Step 2: Hash call sequence to integer list");
     long HashSolverSolveStartTime = System.currentTimeMillis();

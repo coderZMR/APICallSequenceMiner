@@ -1,0 +1,7 @@
+[java.lang.StringBuilder.append] : 1
+[java.lang.StringBuilder.append, java.lang.CharSequence.length] : 1
+[java.lang.StringBuilder.append, java.lang.CharSequence.length, java.lang.StringBuilder.substring] : 1
+[java.lang.StringBuilder.append, java.lang.StringBuilder.substring] : 1
+[java.lang.CharSequence.length] : 1
+[java.lang.CharSequence.length, java.lang.StringBuilder.substring] : 1
+[java.lang.StringBuilder.substring] : 1

@@ -13,18 +13,7 @@ public class Config {
    * 支持传入的路径可以为项目仓库的或者单个代码文件（.java）的
    * @return
    */
-//  public static String getJavaCorpusPath() { return "G:\\NCE\\src\\"; }
-//  public static String getJavaCorpusPath() { return "G:\\NCE\\src\\main\\java\\com\\company\\NCE08_1_mulMethod.java"; }
   public static String getJavaCorpusPath() { return "G:\\NCE\\src\\main\\java\\com\\company\\NCE02.java"; }
-//  public static String getJavaCorpusPath() { return "E:\\bigcode\\dklaputa"; }
-
-//  public static String getFilterPackage() {
-//    return "org.apache.poi";
-//  }
-
-//  public static String getSearchQuery() {
-//    return "apache+poi";
-//  }
 
   public static String getLibraryApiPath() {
     return "data/library_api.txt";
@@ -49,8 +38,6 @@ public class Config {
   public static String getLibSrcPath() {
     return "/Users/maxkibble/Documents/Data/DomainNLI/" + "src";
   }
-
-//  public static String getCurrentTask() { return "fill_color"; }
 
   public static boolean useShortName() {
     return false;

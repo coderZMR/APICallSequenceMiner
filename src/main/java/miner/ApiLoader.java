@@ -41,8 +41,6 @@ public class ApiLoader {
       int hashCode = 0;
       int shortHashCode = 0;
       while ((line = reader.readLine()) != null) {
-        // TODO 应该加括号
-//        System.out.println(line);
         if (line.indexOf('(') != -1) line = line.substring(0, line.indexOf('('));
         libraryApis.put(line, hashCode);
         reverseLibraryApis.put(hashCode, line);

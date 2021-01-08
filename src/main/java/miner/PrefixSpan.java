@@ -1,7 +1,5 @@
 package miner;
 
-import org.apache.commons.lang3.StringUtils;
-import sun.nio.cs.ext.GBK;
 import utils.Config;
 
 import java.io.*;
@@ -12,7 +10,6 @@ public class PrefixSpan {
 
     String ret = "";
     try {
-//      Process p = Runtime.getRuntime().exec(new String[]{ "cmd", "/c", "prefixspan-cli top-k " + topK + " --minlen=" + minLen + " --closed " + seqList});
       String path = Config.getProjectPath();
       String cmdStr = "python" + " " +path+ "\\PrefixSpan-py-master\\prefixspan-cli" + " ";
       if (ifTopK) cmdStr += "top-k" + " " + value + " " + "--minlen=" + minLen + " " + seqList;
@@ -44,14 +41,6 @@ public class PrefixSpan {
         e.printStackTrace();
         System.exit(-1);
     }
-  }
-
-  public static void main(String[] args) throws IOException {
-//    String seqPath = Config.getSeqPath();
-//    System.out.println("这是seqPath：  "+seqPath);
-//    PrefixSpan.mine(seqPath,4, 3);
-    //获取当前项目的路径
-
   }
 
 }
