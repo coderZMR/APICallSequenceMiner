@@ -1,1 +1,1 @@
-# CallSequenceMiner
+# APICallSequenceMiner
